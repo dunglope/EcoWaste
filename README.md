@@ -52,4 +52,11 @@ The app uses built-in Material widgets only. Map areas are styled GIS mock panel
 - `lib/shell/` contains the fixed sidebar, top bar, status bar, and admin shell.
 - `lib/routing/` maps selected navigation items to pages.
 - `lib/shared/` contains reusable cards, KPI widgets, tables, map mockups, and form helpers.
-- `lib/pages/` contains feature pages grouped by sitemap area.
+- `lib/pages/dashboard_page.dart` contains the operational dashboard.
+- `lib/pages/operations/` contains collection requests, routes, transfer
+  stations, and incident pages.
+- `lib/pages/resources/` contains fleet and personnel pages.
+- `lib/pages/reports/` contains KPI and spatial analysis pages.
+- `lib/pages/admin/` contains one file for each System Administration screen.
+- The small `*_pages.dart` files are export barrels that keep router imports
+  concise while allowing every screen to evolve independently.
