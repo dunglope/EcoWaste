@@ -1,19 +1,15 @@
-2026/07/31-22:56:20.800 55bc Reusing MANIFEST C:\Users\Admin\AppData\Local\Temp\flutter_tools.c76d94f1\flutter_tools_chrome_device.e7fd6dc4\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
-2026/07/31-22:56:20.858 55bc Recovering log #16
-2026/07/31-22:56:20.859 55bc Reusing old log C:\Users\Admin\AppData\Local\Temp\flutter_tools.c76d94f1\flutter_tools_chrome_device.e7fd6dc4\Default\EdgeCoupons/coupons_data.db/000016.log 
-2026/07/31-22:56:20.933 55bc Delete type=0 #4
-2026/07/31-22:56:20.933 55bc Delete type=0 #7
-2026/07/31-22:56:20.934 55bc Delete type=0 #10
-2026/07/31-22:56:20.934 55bc Delete type=0 #13
-2026/07/31-22:56:21.664 41fc Level-0 table #20: started
-2026/07/31-22:56:21.673 41fc Level-0 table #20: 683332 bytes OK
-2026/07/31-22:56:21.679 41fc Delete type=0 #16
-2026/07/31-22:56:21.682 41fc Compacting 4@0 + 1@1 files
-2026/07/31-22:56:21.698 41fc Generated table #21@0: 4 keys, 683240 bytes
-2026/07/31-22:56:21.698 41fc Compacted 4@0 + 1@1 files => 683240 bytes
-2026/07/31-22:56:21.701 41fc compacted to: files[ 0 1 1 0 0 0 0 ]
-2026/07/31-22:56:21.704 41fc Delete type=2 #8
-2026/07/31-22:56:21.704 41fc Delete type=2 #11
-2026/07/31-22:56:21.705 41fc Delete type=2 #14
-2026/07/31-22:56:21.705 41fc Delete type=2 #17
-2026/07/31-22:56:21.705 41fc Delete type=2 #20
+2026/07/31-23:34:48.559 22d8 Reusing MANIFEST C:\Users\Admin\AppData\Local\Temp\flutter_tools.5497697c\flutter_tools_chrome_device.52c18b80\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/07/31-23:34:52.356 22d8 Recovering log #19
+2026/07/31-23:34:52.358 22d8 Reusing old log C:\Users\Admin\AppData\Local\Temp\flutter_tools.5497697c\flutter_tools_chrome_device.52c18b80\Default\EdgeCoupons/coupons_data.db/000019.log 
+2026/07/31-23:34:52.392 22d8 Delete type=0 #4
+2026/07/31-23:34:52.392 22d8 Delete type=0 #7
+2026/07/31-23:34:52.393 22d8 Delete type=2 #8
+2026/07/31-23:34:52.393 22d8 Delete type=0 #10
+2026/07/31-23:34:52.393 22d8 Delete type=2 #11
+2026/07/31-23:34:52.393 22d8 Delete type=0 #13
+2026/07/31-23:34:52.394 22d8 Delete type=2 #14
+2026/07/31-23:34:52.395 22d8 Delete type=0 #16
+2026/07/31-23:34:52.396 22d8 Delete type=2 #17
+2026/07/31-23:34:55.777 5dd0 Level-0 table #24: started
+2026/07/31-23:34:55.787 5dd0 Level-0 table #24: 683332 bytes OK
+2026/07/31-23:34:55.793 5dd0 Delete type=0 #19

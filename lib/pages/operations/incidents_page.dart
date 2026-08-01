@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 import '../../app/theme.dart';
 import '../../shared/widgets.dart';
@@ -282,124 +282,236 @@ class IncidentClusterPreview extends StatelessWidget {
       );
 }
 
-class ReportIncidentDialog extends StatelessWidget {
+class ReportIncidentDialog extends StatefulWidget {
   const ReportIncidentDialog({super.key});
 
   @override
-  Widget build(BuildContext context) => Dialog(
-        insetPadding: const EdgeInsets.all(32),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: SizedBox(
-          width: 560,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(22, 18, 12, 14),
-                child: Row(
-                  children: [
-                    const Expanded(
-                      child: Text('Report New Incident',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w900,
-                              color: primary)),
+  State<ReportIncidentDialog> createState() => _ReportIncidentDialogState();
+}
+
+class _ReportIncidentDialogState extends State<ReportIncidentDialog> {
+  final _formKey = GlobalKey<FormState>();
+  final _descriptionController = TextEditingController();
+
+  String _incidentType = 'Overflow';
+  String _severity = 'Medium';
+  String _location = '40.7128° N, 74.0060° W';
+  String? _evidenceName;
+
+  @override
+  void dispose() {
+    _descriptionController.dispose();
+    super.dispose();
+  }
+
+  void _chooseEvidence() {
+    setState(() => _evidenceName = 'incident_evidence.jpg');
+  }
+
+  void _chooseLocation() {
+    setState(() => _location = '40.7134° N, 74.0054° W');
+  }
+
+  void _submit() {
+    if (!_formKey.currentState!.validate()) return;
+    final messenger = ScaffoldMessenger.of(context);
+    Navigator.of(context).pop();
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text('$_severity $_incidentType incident submitted.'),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      clipBehavior: Clip.antiAlias,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 500,
+          maxHeight: MediaQuery.sizeOf(context).height * .92,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 10, 8, 10),
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: Text(
+                      'Report New Incident',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
                     ),
-                    IconButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        icon: const Icon(Icons.close_rounded)),
-                  ],
-                ),
+                  ),
+                  IconButton(
+                    tooltip: 'Close',
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: const Icon(Icons.close_rounded),
+                  ),
+                ],
               ),
-              const Divider(height: 1),
-              Padding(
-                padding: const EdgeInsets.all(22),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    formLabel('Incident Type'),
-                    fakeField('Overflow'),
-                    formLabel('Severity Level'),
-                    const Wrap(
-                      spacing: 8,
-                      children: [
-                        ChipPill('Emergency'),
-                        ChipPill('High'),
-                        ChipPill('Medium', active: true),
-                        ChipPill('Low'),
-                      ],
-                    ),
-                    formLabel('Description'),
-                    Container(
-                      height: 100,
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(14),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFE5E9E0),
+            ),
+            const Divider(height: 1),
+            Flexible(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(14),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      formLabel('Incident Type'),
+                      const SizedBox(height: 6),
+                      DropdownButtonFormField<String>(
+                        value: _incidentType,
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xFFF1F2EE),
+                        ),
+                        items: const [
+                          'Overflow',
+                          'Damage',
+                          'Missed Collection',
+                          'Vehicle Breakdown',
+                          'Blocked Access',
+                        ]
+                            .map((type) => DropdownMenuItem(
+                                  value: type,
+                                  child: Text(type),
+                                ))
+                            .toList(),
+                        onChanged: (value) =>
+                            setState(() => _incidentType = value!),
+                      ),
+                      formLabel('Severity Level'),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: ['Emergency', 'High', 'Medium', 'Low']
+                            .map((level) => ChoiceChip(
+                                  label: Text(level),
+                                  selected: _severity == level,
+                                  selectedColor: primarySoft,
+                                  showCheckmark: false,
+                                  onSelected: (_) =>
+                                      setState(() => _severity = level),
+                                ))
+                            .toList(),
+                      ),
+                      formLabel('Description'),
+                      TextFormField(
+                        controller: _descriptionController,
+                        minLines: 4,
+                        maxLines: 4,
+                        decoration: const InputDecoration(
+                          hintText: 'Provide details about the incident...',
+                          filled: true,
+                          fillColor: Color(0xFFF1F2EE),
+                        ),
+                        validator: (value) =>
+                            value == null || value.trim().isEmpty
+                                ? 'Please describe the incident.'
+                                : null,
+                      ),
+                      formLabel('Evidence'),
+                      InkWell(
+                        onTap: _chooseEvidence,
                         borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Text(
-                        'Provide details about the incident...',
-                        style: TextStyle(color: textMuted, fontSize: 12),
-                      ),
-                    ),
-                    formLabel('Evidence'),
-                    Container(
-                      height: 92,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                            color: const Color(0xFFB8C2B3),
-                            style: BorderStyle.solid),
-                      ),
-                      child: const Center(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.cloud_upload_outlined, color: primary),
-                            SizedBox(height: 8),
-                            Text('Upload photos or videos',
-                                style: TextStyle(fontSize: 12)),
-                          ],
+                        child: Container(
+                          height: 86,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: const Color(0xFFB8C2B3)),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  _evidenceName == null
+                                      ? Icons.cloud_upload_outlined
+                                      : Icons.check_circle_outline_rounded,
+                                  color: primary,
+                                ),
+                                const SizedBox(height: 7),
+                                Text(
+                                  _evidenceName ?? 'Upload photos or videos',
+                                  style: const TextStyle(fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                    formLabel('Location'),
-                    Row(
-                      children: [
-                        Expanded(child: fakeField('40.7128° N, 74.0060° W')),
-                        const SizedBox(width: 12),
-                        TextButton.icon(
-                            onPressed: () {},
-                            icon: const Icon(Icons.my_location_rounded),
-                            label: const Text('Choose')),
-                      ],
-                    ),
-                  ],
+                      formLabel('Location'),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 48,
+                              alignment: Alignment.centerLeft,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 14),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFF1F2EE),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Text(
+                                _location,
+                                style: const TextStyle(
+                                  fontFamily: 'monospace',
+                                  fontSize: 12,
+                                  color: textMuted,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton.icon(
+                            onPressed: _chooseLocation,
+                            icon:
+                                const Icon(Icons.my_location_rounded, size: 17),
+                            label: const Text('Choose'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(18),
-                decoration: const BoxDecoration(color: Color(0xFFF2F3ED)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('Cancel')),
-                    const SizedBox(width: 16),
-                    FilledButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      style: FilledButton.styleFrom(backgroundColor: primary),
-                      child: const Text('Submit Report'),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+              color: const Color(0xFFF2F3ED),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('Cancel'),
+                  ),
+                  const SizedBox(width: 16),
+                  FilledButton(
+                    onPressed: _submit,
+                    style: FilledButton.styleFrom(
+                      backgroundColor: primary,
+                      minimumSize: const Size(126, 42),
                     ),
-                  ],
-                ),
+                    child: const Text('Submit Report'),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
+      ),
+    );
+  }
 }
