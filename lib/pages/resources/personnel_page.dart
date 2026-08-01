@@ -1,7 +1,8 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 import '../../app/theme.dart';
 import '../../shared/widgets.dart';
+import 'edit_profile_dialog.dart';
 
 class PersonnelPage extends StatelessWidget {
   const PersonnelPage({super.key});
@@ -155,25 +156,36 @@ class ScheduleGrid extends StatelessWidget {
 
 class PersonnelDetail extends StatelessWidget {
   const PersonnelDetail({super.key});
+
+  void _showEditProfileDialog(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => const EditProfileDialog(),
+    );
+  }
+
   @override
-  Widget build(BuildContext context) => Column(children: const [
-        CircleAvatar(radius: 44, child: Text('RK')),
-        SizedBox(height: 12),
-        Text('Robert K.',
+  Widget build(BuildContext context) => Column(children: [
+        const CircleAvatar(radius: 44, child: Text('RK')),
+        const SizedBox(height: 12),
+        const Text('Robert K.',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
-        Text('Senior Driver • ID: EMP-0492'),
-        SizedBox(height: 16),
+        const Text('Senior Driver • ID: EMP-0492'),
+        const SizedBox(height: 16),
         Row(children: [
-          Expanded(
+          const Expanded(
               child: FilledButton(onPressed: null, child: Text('Message'))),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Expanded(
-              child:
-                  OutlinedButton(onPressed: null, child: Text('Edit Profile')))
+            child: OutlinedButton(
+              onPressed: () => _showEditProfileDialog(context),
+              child: const Text('Edit Profile'),
+            ),
+          )
         ]),
-        Divider(height: 32),
-        MetricLine('Phone', '+1 (555) 019-2837'),
-        MetricLine('Email', 'robert.k@ecosystem.com'),
-        MetricLine('License Expiration', 'Dec 14, 2025')
+        const Divider(height: 32),
+        const MetricLine('Phone', '+1 (555) 019-2837'),
+        const MetricLine('Email', 'robert.k@ecosystem.com'),
+        const MetricLine('License Expiration', 'Dec 14, 2025')
       ]);
 }
