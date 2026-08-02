@@ -1,25 +1,33 @@
-2026/08/02-09:50:17.160 7f70 Reusing MANIFEST C:\Users\Admin\AppData\Local\Temp\flutter_tools.6d642224\flutter_tools_chrome_device.423d94eb\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
-2026/08/02-09:50:17.162 7f70 Recovering log #39
-2026/08/02-09:50:17.162 7f70 Reusing old log C:\Users\Admin\AppData\Local\Temp\flutter_tools.6d642224\flutter_tools_chrome_device.423d94eb\Default\EdgeCoupons/coupons_data.db/000039.log 
-2026/08/02-09:50:17.170 7f70 Delete type=0 #4
-2026/08/02-09:50:17.170 7f70 Delete type=0 #7
-2026/08/02-09:50:17.170 7f70 Delete type=2 #8
-2026/08/02-09:50:17.170 7f70 Delete type=0 #10
-2026/08/02-09:50:17.171 7f70 Delete type=2 #11
-2026/08/02-09:50:17.171 7f70 Delete type=0 #13
-2026/08/02-09:50:17.171 7f70 Delete type=2 #14
-2026/08/02-09:50:17.171 7f70 Delete type=0 #16
-2026/08/02-09:50:17.172 7f70 Delete type=2 #17
-2026/08/02-09:50:17.174 7f70 Delete type=0 #19
-2026/08/02-09:50:17.174 7f70 Delete type=2 #21
-2026/08/02-09:50:17.174 7f70 Delete type=0 #23
-2026/08/02-09:50:17.175 7f70 Delete type=2 #24
-2026/08/02-09:50:17.176 7f70 Delete type=0 #26
-2026/08/02-09:50:17.176 7f70 Delete type=2 #27
-2026/08/02-09:50:17.176 7f70 Delete type=0 #29
-2026/08/02-09:50:17.177 7f70 Delete type=2 #30
-2026/08/02-09:50:17.177 7f70 Delete type=0 #32
-2026/08/02-09:50:17.177 7f70 Delete type=0 #36
-2026/08/02-09:50:17.490 80d0 Level-0 table #43: started
-2026/08/02-09:50:17.494 80d0 Level-0 table #43: 683332 bytes OK
-2026/08/02-09:50:17.495 80d0 Delete type=0 #39
+2026/08/02-17:28:09.626 7190 Reusing MANIFEST C:\Users\Admin\AppData\Local\Temp\flutter_tools.1a008d19\flutter_tools_chrome_device.a6121189\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/08/02-17:28:09.642 7190 Recovering log #52
+2026/08/02-17:28:09.642 7190 Reusing old log C:\Users\Admin\AppData\Local\Temp\flutter_tools.1a008d19\flutter_tools_chrome_device.a6121189\Default\EdgeCoupons/coupons_data.db/000052.log 
+2026/08/02-17:28:09.644 7190 Delete type=0 #4
+2026/08/02-17:28:09.644 7190 Delete type=0 #7
+2026/08/02-17:28:09.645 7190 Delete type=2 #8
+2026/08/02-17:28:09.645 7190 Delete type=0 #10
+2026/08/02-17:28:09.645 7190 Delete type=2 #11
+2026/08/02-17:28:09.645 7190 Delete type=0 #13
+2026/08/02-17:28:09.646 7190 Delete type=2 #14
+2026/08/02-17:28:09.667 7190 Delete type=0 #16
+2026/08/02-17:28:09.668 7190 Delete type=2 #17
+2026/08/02-17:28:09.668 7190 Delete type=0 #19
+2026/08/02-17:28:09.668 7190 Delete type=2 #21
+2026/08/02-17:28:09.669 7190 Delete type=0 #23
+2026/08/02-17:28:09.669 7190 Delete type=2 #24
+2026/08/02-17:28:09.670 7190 Delete type=0 #26
+2026/08/02-17:28:09.672 7190 Delete type=2 #27
+2026/08/02-17:28:09.672 7190 Delete type=0 #29
+2026/08/02-17:28:09.673 7190 Delete type=2 #30
+2026/08/02-17:28:09.673 7190 Delete type=0 #32
+2026/08/02-17:28:09.674 7190 Delete type=2 #34
+2026/08/02-17:28:09.713 7190 Delete type=0 #36
+2026/08/02-17:28:09.715 7190 Delete type=2 #37
+2026/08/02-17:28:09.716 7190 Delete type=0 #39
+2026/08/02-17:28:09.717 7190 Delete type=2 #40
+2026/08/02-17:28:09.718 7190 Delete type=0 #42
+2026/08/02-17:28:09.718 7190 Delete type=2 #43
+2026/08/02-17:28:09.719 7190 Delete type=0 #45
+2026/08/02-17:28:09.719 7190 Delete type=0 #49
+2026/08/02-17:28:10.282 1038 Level-0 table #56: started
+2026/08/02-17:28:10.286 1038 Level-0 table #56: 683332 bytes OK
+2026/08/02-17:28:10.288 1038 Delete type=0 #52
