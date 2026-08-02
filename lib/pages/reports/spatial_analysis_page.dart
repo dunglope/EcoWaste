@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../../app/theme.dart';
+import '../../shared/open_street_map.dart';
 import '../../shared/widgets.dart';
 import 'export_map_dialog.dart';
 import 'export_spatial_data_dialog.dart';
@@ -15,6 +18,9 @@ class SpatialAnalysisPage extends StatefulWidget {
 }
 
 class _SpatialAnalysisPageState extends State<SpatialAnalysisPage> {
+  static const _mapCenter = LatLng(40.7128, -74.0060);
+  final MapController _mapController = MapController();
+  bool _mapReady = false;
   bool _toolboxCollapsed = false;
   String _densityMethod = 'Kernel Density Estimation';
   bool _optimizedHotspot = true;
@@ -44,6 +50,7 @@ class _SpatialAnalysisPageState extends State<SpatialAnalysisPage> {
   @override
   void dispose() {
     _timelineTimer?.cancel();
+    _mapController.dispose();
     super.dispose();
   }
 
@@ -281,83 +288,94 @@ class _SpatialAnalysisPageState extends State<SpatialAnalysisPage> {
   }
 
   Widget _buildMap() {
-    return Container(
-      color: const Color(0xFFE7EDE4),
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: CustomPaint(
-              painter: MapPainter(
-                heat: _heatmap,
-                showPoints: _wasteBins,
-                showRoutes: _routes,
-                showIncidents: _incidents,
-              ),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: OpenStreetMapView(
+            height: double.infinity,
+            center: _mapCenter,
+            initialZoom: _zoom,
+            controller: _mapController,
+            showControls: false,
+            heat: _heatmap,
+            showPoints: _wasteBins,
+            showRoutes: _routes,
+            showIncidents: _incidents,
+            onMapReady: () => _mapReady = true,
+            onPositionChanged: (zoom) => _zoom = zoom,
+          ),
+        ),
+        Positioned(
+          left: 14,
+          top: 14,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+            color: Colors.white.withOpacity(.9),
+            child: Text(
+              '$_densityMethod · ${_days[_timelineIndex]}',
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
           ),
-          Positioned(
-            left: 14,
-            top: 14,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
-              color: Colors.white.withOpacity(.9),
-              child: Text(
-                '$_densityMethod · ${_days[_timelineIndex]}',
-                style: const TextStyle(fontWeight: FontWeight.w800),
-              ),
+        ),
+        Positioned(
+          top: 14,
+          right: 14,
+          child: Material(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _MapButton(
+                  tooltip: 'Zoom in',
+                  icon: Icons.add_rounded,
+                  onPressed: () {
+                    if (!_mapReady) return;
+                    setState(() => _zoom = (_zoom + 1).clamp(2, 19));
+                    _mapController.move(_mapController.camera.center, _zoom);
+                  },
+                ),
+                _MapButton(
+                  tooltip: 'Zoom out',
+                  icon: Icons.remove_rounded,
+                  onPressed: () {
+                    if (!_mapReady) return;
+                    setState(() => _zoom = (_zoom - 1).clamp(2, 19));
+                    _mapController.move(_mapController.camera.center, _zoom);
+                  },
+                ),
+                _MapButton(
+                  tooltip: 'Toggle heatmap',
+                  icon: Icons.layers_rounded,
+                  onPressed: () => setState(() => _heatmap = !_heatmap),
+                ),
+                _MapButton(
+                  tooltip: 'Center current location',
+                  icon: Icons.my_location_rounded,
+                  onPressed: () {
+                    if (_mapReady) _mapController.move(_mapCenter, 12);
+                    setState(() => _zoom = 12);
+                    _showMessage('Map centered on current location.');
+                  },
+                ),
+              ],
             ),
           ),
-          Positioned(
-            top: 14,
-            right: 14,
-            child: Material(
-              color: Colors.white,
+        ),
+        Positioned(
+          left: 14,
+          bottom: 14,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(.92),
               borderRadius: BorderRadius.circular(8),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _MapButton(
-                    tooltip: 'Zoom in',
-                    icon: Icons.add_rounded,
-                    onPressed: () =>
-                        setState(() => _zoom = (_zoom + 1).clamp(1, 20)),
-                  ),
-                  _MapButton(
-                    tooltip: 'Zoom out',
-                    icon: Icons.remove_rounded,
-                    onPressed: () =>
-                        setState(() => _zoom = (_zoom - 1).clamp(1, 20)),
-                  ),
-                  _MapButton(
-                    tooltip: 'Toggle heatmap',
-                    icon: Icons.layers_rounded,
-                    onPressed: () => setState(() => _heatmap = !_heatmap),
-                  ),
-                  _MapButton(
-                    tooltip: 'Center current location',
-                    icon: Icons.my_location_rounded,
-                    onPressed: () =>
-                        _showMessage('Map centered on current location.'),
-                  ),
-                ],
-              ),
             ),
+            child: Text(
+                'Zoom ${_zoom.round()} · Radius ${_searchRadius.round()}m'),
           ),
-          Positioned(
-            left: 14,
-            bottom: 14,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(.92),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                  'Zoom ${_zoom.round()} · Radius ${_searchRadius.round()}m'),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

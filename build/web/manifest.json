@@ -1,0 +1,12 @@
+{
+  "name": "EcoWaste GIS Solutions",
+  "short_name": "EcoWaste",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F9F9F8",
+  "theme_color": "#003F0A",
+  "description": "EcoWaste GIS Solutions admin console",
+  "orientation": "landscape-primary",
+  "prefer_related_applications": false,
+  "icons": []
+}

@@ -14,8 +14,8 @@ class MapServicesPage extends StatelessWidget {
               Expanded(
                   child: Column(children: [
                 SettingsForm(title: 'Provider Settings', fields: const [
-                  'Base Map Provider|Google Maps',
-                  'API Key|**********************'
+                  'Base Map Provider|OpenStreetMap',
+                  'Tile Service|tile.openstreetmap.org'
                 ]),
                 const SizedBox(height: 24),
                 SettingsForm(title: 'Default View', fields: const [

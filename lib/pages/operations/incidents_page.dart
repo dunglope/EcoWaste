@@ -253,11 +253,6 @@ class IncidentClusterPreview extends StatelessWidget {
               children: const [
                 FakeMap(height: 440, label: ''),
                 Positioned(
-                  right: 8,
-                  top: 8,
-                  child: MapControls(vertical: true),
-                ),
-                Positioned(
                   left: 100,
                   top: 210,
                   child: CircleAvatar(

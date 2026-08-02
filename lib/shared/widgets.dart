@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app/theme.dart';
+import 'open_street_map.dart';
 
 class PageScaffold extends StatelessWidget {
   const PageScaffold({
@@ -287,34 +288,10 @@ class FakeMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return OpenStreetMapView(
       height: height,
-      decoration: BoxDecoration(
-        color: const Color(0xFFDCE5D7),
-        border: Border.all(color: border),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        children: [
-          Positioned.fill(child: CustomPaint(painter: MapPainter(heat: heat))),
-          Positioned(
-              left: 16,
-              top: 14,
-              child: Text(label,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w800, color: Color(0xAA1B211A)))),
-          Positioned(right: 16, top: 16, child: MapControls(vertical: true)),
-          Positioned(
-              left: 18,
-              bottom: 18,
-              child: AppCard(
-                  padding: const EdgeInsets.all(10),
-                  child: const Text(
-                      'BIN STATUS\n● Empty   ● Warning   ● Critical',
-                      style: TextStyle(fontSize: 12)))),
-        ],
-      ),
+      label: label,
+      heat: heat,
     );
   }
 }

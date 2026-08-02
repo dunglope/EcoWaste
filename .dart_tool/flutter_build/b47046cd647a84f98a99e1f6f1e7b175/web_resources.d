@@ -1,0 +1,1 @@
+ build\\web\\manifest.json:  C:\\Users\\Admin\\OneDrive\\Máy\ tính\\New\ folder\\DATN\\FE\\web\\index.html C:\\Users\\Admin\\OneDrive\\Máy\ tính\\New\ folder\\DATN\\FE\\web\\manifest.json
