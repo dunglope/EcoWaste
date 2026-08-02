@@ -302,3 +302,30 @@
 {"logTime": "0802/102805", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429618974763083, for SessionType SessionRestore"}
 {"logTime": "0802/102805", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429611316921214, for SessionType SessionRestore"}
 {"logTime": "0802/104115", "session": "END"}
+{"logTime": "0802/104905", "session": "START"}
+{"logTime": "0802/104905", "level": "INFO", "location": "chrome\\browser\\ui\\startup\\startup_browser_creator_impl.cc:352 EdgeLogLastSessionExitTypeOnStartup", "message": "Previous Session Exit Type: PreviousSessionExitType::kNormalBrowserShutDown"}
+{"logTime": "0802/104905", "level": "INFO", "location": "chrome\\browser\\ui\\startup\\startup_browser_creator_impl.cc:1398 DetermineURLsAndLaunch", "message": "Startup Preference: 0"}
+{"logTime": "0802/104905", "level": "INFO", "location": "chrome\\browser\\ui\\startup\\startup_browser_creator_impl.cc:1400 DetermineURLsAndLaunch", "message": "Browser Open Behavior: 0"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Valid session file found: SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430139624068663, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430139376501587, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430139079818343, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430112615341999, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430112366757354, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430111413501636, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430092758495707, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430087007741425, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13430071940890914, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429989285414439, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429986978074940, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429986745020695, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429985801685770, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429985515467064, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429985208416317, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429943866988042, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429742545529145, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429740181082545, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429721606789338, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429618974763083, for SessionType SessionRestore"}
+{"logTime": "0802/104908", "level": "INFO", "location": "components\\sessions\\core\\command_storage_manager.cc:275 operator()", "message": "Delete session file Session_13429611316921214, for SessionType SessionRestore"}
+{"logTime": "0802/105054", "session": "END"}
