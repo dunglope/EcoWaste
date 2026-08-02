@@ -14,7 +14,7 @@ class PermissionsPage extends StatelessWidget {
                 columns: const [
                   'System Modules',
                   'Admin',
-                  'Viewer'
+                  'Driver'
                 ],
                 rows: [
                   [
