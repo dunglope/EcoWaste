@@ -1,23 +1,25 @@
-2026/08/02-04:19:22.165 5ca8 Reusing MANIFEST C:\Users\Admin\AppData\Local\Temp\flutter_tools.4a2365db\flutter_tools_chrome_device.392ad60d\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
-2026/08/02-04:19:22.506 5ca8 Recovering log #29
-2026/08/02-04:19:22.507 5ca8 Reusing old log C:\Users\Admin\AppData\Local\Temp\flutter_tools.4a2365db\flutter_tools_chrome_device.392ad60d\Default\EdgeCoupons/coupons_data.db/000029.log 
-2026/08/02-04:19:22.515 5ca8 Delete type=0 #4
-2026/08/02-04:19:22.516 5ca8 Delete type=0 #7
-2026/08/02-04:19:22.516 5ca8 Delete type=2 #8
-2026/08/02-04:19:22.516 5ca8 Delete type=0 #10
-2026/08/02-04:19:22.516 5ca8 Delete type=2 #11
-2026/08/02-04:19:22.516 5ca8 Delete type=0 #13
-2026/08/02-04:19:22.516 5ca8 Delete type=2 #14
-2026/08/02-04:19:22.589 5ca8 Delete type=0 #16
-2026/08/02-04:19:22.669 5ca8 Delete type=2 #17
-2026/08/02-04:19:22.748 5ca8 Delete type=0 #19
-2026/08/02-04:19:22.791 5ca8 Delete type=0 #23
-2026/08/02-04:19:22.821 5ca8 Delete type=0 #26
-2026/08/02-04:19:24.450 65c8 Level-0 table #33: started
-2026/08/02-04:19:24.466 65c8 Level-0 table #33: 683332 bytes OK
-2026/08/02-04:19:24.468 65c8 Delete type=0 #29
-2026/08/02-04:19:24.469 65c8 Compacting 4@0 + 1@1 files
-2026/08/02-04:19:24.481 65c8 Generated table #34@0: 4 keys, 683240 bytes
-2026/08/02-04:19:24.481 65c8 Compacted 4@0 + 1@1 files => 683240 bytes
-2026/08/02-04:19:24.482 65c8 compacted to: files[ 0 1 1 0 0 0 0 ]
-2026/08/02-04:19:24.483 65c8 Delete type=2 #33
+2026/08/02-09:50:17.160 7f70 Reusing MANIFEST C:\Users\Admin\AppData\Local\Temp\flutter_tools.6d642224\flutter_tools_chrome_device.423d94eb\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/08/02-09:50:17.162 7f70 Recovering log #39
+2026/08/02-09:50:17.162 7f70 Reusing old log C:\Users\Admin\AppData\Local\Temp\flutter_tools.6d642224\flutter_tools_chrome_device.423d94eb\Default\EdgeCoupons/coupons_data.db/000039.log 
+2026/08/02-09:50:17.170 7f70 Delete type=0 #4
+2026/08/02-09:50:17.170 7f70 Delete type=0 #7
+2026/08/02-09:50:17.170 7f70 Delete type=2 #8
+2026/08/02-09:50:17.170 7f70 Delete type=0 #10
+2026/08/02-09:50:17.171 7f70 Delete type=2 #11
+2026/08/02-09:50:17.171 7f70 Delete type=0 #13
+2026/08/02-09:50:17.171 7f70 Delete type=2 #14
+2026/08/02-09:50:17.171 7f70 Delete type=0 #16
+2026/08/02-09:50:17.172 7f70 Delete type=2 #17
+2026/08/02-09:50:17.174 7f70 Delete type=0 #19
+2026/08/02-09:50:17.174 7f70 Delete type=2 #21
+2026/08/02-09:50:17.174 7f70 Delete type=0 #23
+2026/08/02-09:50:17.175 7f70 Delete type=2 #24
+2026/08/02-09:50:17.176 7f70 Delete type=0 #26
+2026/08/02-09:50:17.176 7f70 Delete type=2 #27
+2026/08/02-09:50:17.176 7f70 Delete type=0 #29
+2026/08/02-09:50:17.177 7f70 Delete type=2 #30
+2026/08/02-09:50:17.177 7f70 Delete type=0 #32
+2026/08/02-09:50:17.177 7f70 Delete type=0 #36
+2026/08/02-09:50:17.490 80d0 Level-0 table #43: started
+2026/08/02-09:50:17.494 80d0 Level-0 table #43: 683332 bytes OK
+2026/08/02-09:50:17.495 80d0 Delete type=0 #39

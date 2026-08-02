@@ -349,8 +349,16 @@ class MapControls extends StatelessWidget {
 }
 
 class MapPainter extends CustomPainter {
-  MapPainter({required this.heat});
+  MapPainter({
+    required this.heat,
+    this.showPoints = true,
+    this.showRoutes = true,
+    this.showIncidents = true,
+  });
   final bool heat;
+  final bool showPoints;
+  final bool showRoutes;
+  final bool showIncidents;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -383,7 +391,7 @@ class MapPainter extends CustomPainter {
           size.height * .62, size.width * .52, size.height * .38)
       ..cubicTo(size.width * .64, size.height * .18, size.width * .78,
           size.height * .35, size.width * .9, size.height * .2);
-    canvas.drawPath(path, route);
+    if (showRoutes) canvas.drawPath(path, route);
     final points = [
       Offset(size.width * .22, size.height * .48),
       Offset(size.width * .33, size.height * .56),
@@ -395,8 +403,11 @@ class MapPainter extends CustomPainter {
       Offset(size.width * .37, size.height * .28),
     ];
     for (var i = 0; i < points.length; i++) {
+      final isIncident = i % 5 == 0;
+      if (isIncident && !showIncidents) continue;
+      if (!isIncident && !showPoints) continue;
       final p = Paint()
-        ..color = i % 5 == 0
+        ..color = isIncident
             ? alert
             : i % 3 == 0
                 ? const Color(0xFFFFC400)
@@ -409,7 +420,11 @@ class MapPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant MapPainter oldDelegate) =>
+      heat != oldDelegate.heat ||
+      showPoints != oldDelegate.showPoints ||
+      showRoutes != oldDelegate.showRoutes ||
+      showIncidents != oldDelegate.showIncidents;
 }
 
 class MiniBars extends StatelessWidget {
