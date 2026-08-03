@@ -56,7 +56,8 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 720,
@@ -65,7 +66,9 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Padding(
+            Container(
+              height: modalChromeHeight,
+              decoration: modalHeaderDecoration,
               padding: const EdgeInsets.fromLTRB(14, 8, 8, 8),
               child: Row(
                 children: [
@@ -84,7 +87,6 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
                 ],
               ),
             ),
-            const Divider(height: 1),
             Flexible(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(14),
@@ -97,7 +99,7 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(18),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F2EE),
+                          color: modalControlFill,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Wrap(
@@ -358,8 +360,9 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
             ),
             Container(
               width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

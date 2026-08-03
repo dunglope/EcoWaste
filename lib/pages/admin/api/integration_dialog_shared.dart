@@ -23,7 +23,8 @@ class IntegrationDialogShell extends StatelessWidget {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 560,
@@ -33,8 +34,9 @@ class IntegrationDialogShell extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
+              height: modalChromeHeight,
               padding: const EdgeInsets.fromLTRB(10, 6, 6, 6),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalHeaderDecoration,
               child: Row(
                 children: [
                   Expanded(
@@ -62,8 +64,9 @@ class IntegrationDialogShell extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 children: [
                   if (leadingAction != null) leadingAction!,

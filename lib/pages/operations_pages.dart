@@ -602,14 +602,17 @@ class NewCollectionRequestDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Dialog(
         insetPadding: const EdgeInsets.all(32),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(modalRadius)),
         child: SizedBox(
           width: 560,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              Container(
+                height: modalChromeHeight,
+                decoration: modalHeaderDecoration,
                 padding: const EdgeInsets.fromLTRB(20, 14, 12, 12),
                 child: Row(
                   children: [
@@ -624,7 +627,6 @@ class NewCollectionRequestDialog extends StatelessWidget {
                   ],
                 ),
               ),
-              const Divider(height: 1),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -690,7 +692,7 @@ class NewCollectionRequestDialog extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF1F3ED),
+                        color: modalControlFill,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: border),
                       ),
@@ -703,8 +705,10 @@ class NewCollectionRequestDialog extends StatelessWidget {
                 ),
               ),
               Container(
+                width: double.infinity,
+                height: modalChromeHeight,
                 padding: const EdgeInsets.all(18),
-                decoration: const BoxDecoration(color: Color(0xFFF2F3ED)),
+                decoration: modalFooterDecoration,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -752,13 +756,16 @@ class _AssignDriverDialogState extends State<AssignDriverDialog> {
   @override
   Widget build(BuildContext context) => Dialog(
         insetPadding: const EdgeInsets.all(32),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(modalRadius)),
         child: SizedBox(
           width: 420,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Padding(
+              Container(
+                height: modalChromeHeight,
+                decoration: modalHeaderDecoration,
                 padding: const EdgeInsets.fromLTRB(18, 10, 10, 8),
                 child: Row(
                   children: [
@@ -773,7 +780,6 @@ class _AssignDriverDialogState extends State<AssignDriverDialog> {
                   ],
                 ),
               ),
-              const Divider(height: 1),
               Padding(
                 padding: const EdgeInsets.fromLTRB(18, 18, 18, 10),
                 child: Align(
@@ -801,8 +807,10 @@ class _AssignDriverDialogState extends State<AssignDriverDialog> {
                   onTap: () => setState(() => selectedDriver = i),
                 ),
               Container(
+                width: double.infinity,
+                height: modalChromeHeight,
                 padding: const EdgeInsets.all(18),
-                decoration: const BoxDecoration(color: Color(0xFFF2F3ED)),
+                decoration: modalFooterDecoration,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -925,7 +933,7 @@ class _DialogField extends StatelessWidget {
         height: 42,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
-          color: const Color(0xFFF1F3ED),
+          color: modalControlFill,
           borderRadius: BorderRadius.circular(7),
           border: Border.all(color: border),
         ),
@@ -950,7 +958,7 @@ class _StepperField extends StatelessWidget {
         height: 42,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
-          color: const Color(0xFFF1F3ED),
+          color: modalControlFill,
           borderRadius: BorderRadius.circular(7),
           border: Border.all(color: border),
         ),
@@ -1467,15 +1475,18 @@ class ReportIncidentDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Dialog(
         insetPadding: const EdgeInsets.all(32),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(modalRadius)),
         child: SizedBox(
           width: 560,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(22, 18, 12, 14),
+              Container(
+                height: modalChromeHeight,
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                decoration: modalHeaderDecoration,
                 child: Row(
                   children: [
                     const Expanded(
@@ -1491,7 +1502,6 @@ class ReportIncidentDialog extends StatelessWidget {
                   ],
                 ),
               ),
-              const Divider(height: 1),
               Padding(
                 padding: const EdgeInsets.all(22),
                 child: Column(
@@ -1515,7 +1525,7 @@ class ReportIncidentDialog extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFE5E9E0),
+                        color: modalControlFill,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: const Text(
@@ -1560,8 +1570,10 @@ class ReportIncidentDialog extends StatelessWidget {
                 ),
               ),
               Container(
+                width: double.infinity,
+                height: modalChromeHeight,
                 padding: const EdgeInsets.all(18),
-                decoration: const BoxDecoration(color: Color(0xFFF2F3ED)),
+                decoration: modalFooterDecoration,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

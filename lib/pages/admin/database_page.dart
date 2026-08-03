@@ -39,9 +39,10 @@ class _DatabasePageState extends State<DatabasePage> {
   void _showConnectionDetails() {
     showDialog<void>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: const Text('Connection Pool Details'),
-        content: const SizedBox(
+      builder: (dialogContext) => EcoModalDialog(
+        title: 'Connection Pool Details',
+        maxWidth: 520,
+        body: const SizedBox(
           width: 420,
           child: Column(
             mainAxisSize: MainAxisSize.min,

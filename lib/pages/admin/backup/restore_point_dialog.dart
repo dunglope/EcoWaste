@@ -35,7 +35,8 @@ class _RestorePointDialogState extends State<RestorePointDialog> {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 720,
@@ -180,8 +181,10 @@ class _RestorePointDialogState extends State<RestorePointDialog> {
               ),
             ),
             Container(
+              width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 children: [
                   Expanded(
@@ -235,8 +238,9 @@ class _RestoreHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
+        height: modalChromeHeight,
         padding: const EdgeInsets.fromLTRB(12, 6, 6, 6),
-        color: const Color(0xFFF2F3ED),
+        decoration: modalHeaderDecoration,
         child: Row(
           children: [
             const Expanded(

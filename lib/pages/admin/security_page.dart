@@ -90,9 +90,9 @@ class _SecurityPageState extends State<SecurityPage> {
     final entry = _ranges[index];
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Remove IP Range?'),
-        content: Text(
+      builder: (context) => EcoModalDialog(
+        title: 'Remove IP Range?',
+        body: Text(
           '${entry.cidr} will immediately lose access to protected services.',
         ),
         actions: [

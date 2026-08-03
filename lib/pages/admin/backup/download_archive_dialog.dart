@@ -19,7 +19,8 @@ class _DownloadArchiveDialogState extends State<DownloadArchiveDialog> {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 520,
@@ -29,8 +30,9 @@ class _DownloadArchiveDialogState extends State<DownloadArchiveDialog> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
+              height: modalChromeHeight,
               padding: const EdgeInsets.fromLTRB(12, 6, 6, 6),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalHeaderDecoration,
               child: Row(
                 children: [
                   const Expanded(
@@ -96,7 +98,7 @@ class _DownloadArchiveDialogState extends State<DownloadArchiveDialog> {
                         Container(
                           padding: const EdgeInsets.only(left: 12),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF2F3ED),
+                            color: modalControlFill,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Row(
@@ -140,8 +142,10 @@ class _DownloadArchiveDialogState extends State<DownloadArchiveDialog> {
               ),
             ),
             Container(
+              width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

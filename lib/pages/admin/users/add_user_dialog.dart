@@ -53,7 +53,8 @@ class _AddUserDialogState extends State<AddUserDialog> {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 560,
@@ -63,8 +64,9 @@ class _AddUserDialogState extends State<AddUserDialog> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
+              height: modalChromeHeight,
               padding: const EdgeInsets.fromLTRB(14, 7, 7, 7),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalHeaderDecoration,
               child: Row(
                 children: [
                   const Expanded(
@@ -255,8 +257,10 @@ class _AddUserDialogState extends State<AddUserDialog> {
               ),
             ),
             Container(
+              width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

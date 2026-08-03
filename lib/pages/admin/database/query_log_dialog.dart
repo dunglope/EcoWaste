@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/theme.dart';
+import '../../../shared/widgets.dart';
 
 class QueryLogDialog extends StatefulWidget {
   const QueryLogDialog({super.key});
@@ -83,9 +84,9 @@ class _QueryLogDialogState extends State<QueryLogDialog> {
   void _showStatement(_QueryLog log) {
     showDialog<void>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text('${log.type} Statement'),
-        content: SelectableText(log.statement),
+      builder: (context) => EcoModalDialog(
+        title: '${log.type} Statement',
+        body: SelectableText(log.statement),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -107,7 +108,8 @@ class _QueryLogDialogState extends State<QueryLogDialog> {
     return Dialog(
       insetPadding: const EdgeInsets.all(18),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 1040,
@@ -116,8 +118,9 @@ class _QueryLogDialogState extends State<QueryLogDialog> {
         child: Column(
           children: [
             Container(
+              height: modalChromeHeight,
               padding: const EdgeInsets.fromLTRB(12, 8, 6, 8),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalHeaderDecoration,
               child: Row(
                 children: [
                   const Icon(Icons.history_rounded, color: primary),
@@ -212,7 +215,7 @@ class _QueryLogDialogState extends State<QueryLogDialog> {
                   child: SingleChildScrollView(
                     child: DataTable(
                       headingRowColor: WidgetStateProperty.all(
-                        const Color(0xFFF2F3ED),
+                        modalControlFill,
                       ),
                       columns: const [
                         DataColumn(label: Text('TIMESTAMP')),
@@ -273,8 +276,10 @@ class _QueryLogDialogState extends State<QueryLogDialog> {
               ),
             ),
             Container(
+              width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 children: [
                   Text(

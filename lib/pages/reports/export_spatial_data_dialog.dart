@@ -51,7 +51,8 @@ class _ExportSpatialDataDialogState extends State<ExportSpatialDataDialog> {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 560,
@@ -61,8 +62,9 @@ class _ExportSpatialDataDialogState extends State<ExportSpatialDataDialog> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
+              height: modalChromeHeight,
               padding: const EdgeInsets.fromLTRB(12, 6, 6, 6),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalHeaderDecoration,
               child: Row(
                 children: [
                   const Expanded(
@@ -137,7 +139,7 @@ class _ExportSpatialDataDialogState extends State<ExportSpatialDataDialog> {
                               decoration: BoxDecoration(
                                 color: selected
                                     ? const Color(0xFFDDE6DC)
-                                    : const Color(0xFFF2F3ED),
+                                    : modalControlFill,
                                 border: Border.all(
                                     color: selected
                                         ? primary
@@ -210,8 +212,10 @@ class _ExportSpatialDataDialogState extends State<ExportSpatialDataDialog> {
               ),
             ),
             Container(
+              width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

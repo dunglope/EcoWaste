@@ -369,7 +369,8 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
 
     return Dialog(
       insetPadding: const EdgeInsets.all(32),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 920,
@@ -382,15 +383,9 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFF4F4F2),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(14),
-                      topRight: Radius.circular(14),
-                    ),
-                  ),
+                  height: modalChromeHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  decoration: modalHeaderDecoration,
                   child: Row(
                     children: [
                       const Expanded(
@@ -419,7 +414,7 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
                       TextField(
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: const Color(0xFFF1F2EE),
+                          fillColor: modalControlFill,
                           hintText: 'e.g. North Metropolitan Recycling Hub',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -439,7 +434,7 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
                                 TextField(
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: const Color(0xFFF1F2EE),
+                                    fillColor: modalControlFill,
                                     hintText: '47.6062',
                                     suffixIcon:
                                         const Icon(Icons.location_on_outlined),
@@ -463,7 +458,7 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
                                 TextField(
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: const Color(0xFFF1F2EE),
+                                    fillColor: modalControlFill,
                                     hintText: '-122.3321',
                                     suffixIcon:
                                         const Icon(Icons.location_on_outlined),
@@ -491,7 +486,7 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
                                 TextField(
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: const Color(0xFFF1F2EE),
+                                    fillColor: modalControlFill,
                                     hintText: '500',
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -514,7 +509,7 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
                                   value: 'Operational (Active)',
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: const Color(0xFFF1F2EE),
+                                    fillColor: modalControlFill,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide:
@@ -551,7 +546,7 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
                             selected: selected,
                             showCheckmark: false,
                             selectedColor: const Color(0xFFDBF0D9),
-                            backgroundColor: const Color(0xFFF1F3EE),
+                            backgroundColor: modalControlFill,
                             side: BorderSide(
                               color:
                                   selected ? const Color(0xFF9BC7A5) : border,
@@ -586,15 +581,10 @@ class _CreateStationDialogState extends State<CreateStationDialog> {
                   ),
                 ),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFF2F3ED),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(14),
-                      bottomRight: Radius.circular(14),
-                    ),
-                  ),
+                  width: double.infinity,
+                  height: modalChromeHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  decoration: modalFooterDecoration,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -638,7 +628,8 @@ class ImportGisDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       insetPadding: const EdgeInsets.all(32),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 900,
@@ -651,8 +642,9 @@ class ImportGisDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
+                  height: modalChromeHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  decoration: modalHeaderDecoration,
                   child: Row(
                     children: [
                       const Expanded(
@@ -717,7 +709,7 @@ class ImportGisDialog extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(18),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF1F2EE),
+                            color: modalControlFill,
                             border: Border.all(color: border),
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -798,7 +790,7 @@ class ImportGisDialog extends StatelessWidget {
                         value: 'WGS 84 (EPSG:4326)',
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: const Color(0xFFF1F2EE),
+                          fillColor: modalControlFill,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(color: border),
@@ -819,7 +811,7 @@ class ImportGisDialog extends StatelessWidget {
                         value: 'Waste Receptacles (Current)',
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: const Color(0xFFF1F2EE),
+                          fillColor: modalControlFill,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(color: border),
@@ -837,15 +829,10 @@ class ImportGisDialog extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFF2F3ED),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(14),
-                      bottomRight: Radius.circular(14),
-                    ),
-                  ),
+                  width: double.infinity,
+                  height: modalChromeHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  decoration: modalFooterDecoration,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -901,7 +888,8 @@ class _ExportGisDialogState extends State<ExportGisDialog> {
 
     return Dialog(
       insetPadding: const EdgeInsets.all(32),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 900,
@@ -914,8 +902,9 @@ class _ExportGisDialogState extends State<ExportGisDialog> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
+                  height: modalChromeHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  decoration: modalHeaderDecoration,
                   child: Row(
                     children: [
                       const Expanded(
@@ -948,7 +937,7 @@ class _ExportGisDialogState extends State<ExportGisDialog> {
                               value: 'Primary District',
                               decoration: InputDecoration(
                                 filled: true,
-                                fillColor: const Color(0xFFF1F2EE),
+                                fillColor: modalControlFill,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: const BorderSide(color: border),
@@ -980,7 +969,7 @@ class _ExportGisDialogState extends State<ExportGisDialog> {
                               value: 'Standard (UTM-32N)',
                               decoration: InputDecoration(
                                 filled: true,
-                                fillColor: const Color(0xFFF1F2EE),
+                                fillColor: modalControlFill,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: const BorderSide(color: border),
@@ -1153,7 +1142,10 @@ class _ExportGisDialogState extends State<ExportGisDialog> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 18),
+                  width: double.infinity,
+                  height: modalChromeHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: modalFooterDecoration,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

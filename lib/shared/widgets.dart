@@ -3,6 +3,78 @@ import 'package:flutter/material.dart';
 import '../app/theme.dart';
 import 'open_street_map.dart';
 
+class EcoModalDialog extends StatelessWidget {
+  const EcoModalDialog({
+    super.key,
+    required this.title,
+    required this.body,
+    required this.actions,
+    this.maxWidth = 520,
+  });
+
+  final String title;
+  final Widget body;
+  final List<Widget> actions;
+  final double maxWidth;
+
+  @override
+  Widget build(BuildContext context) => Dialog(
+        insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(modalRadius)),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: maxWidth,
+            maxHeight: MediaQuery.sizeOf(context).height * .9,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: modalChromeHeight,
+                padding: const EdgeInsets.fromLTRB(16, 6, 8, 6),
+                decoration: modalHeaderDecoration,
+                child: Row(children: [
+                  Expanded(
+                    child: Text(title,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w800)),
+                  ),
+                  IconButton(
+                    tooltip: 'Close',
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: const Icon(Icons.close_rounded),
+                  ),
+                ]),
+              ),
+              Flexible(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(18),
+                  child: Align(alignment: Alignment.centerLeft, child: body),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: modalChromeHeight,
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                decoration: modalFooterDecoration,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    for (var i = 0; i < actions.length; i++) ...[
+                      if (i > 0) const SizedBox(width: 12),
+                      actions[i],
+                    ],
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+}
+
 class PageScaffold extends StatelessWidget {
   const PageScaffold({
     super.key,

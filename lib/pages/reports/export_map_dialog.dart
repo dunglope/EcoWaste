@@ -34,7 +34,8 @@ class _ExportMapDialogState extends State<ExportMapDialog> {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 900,
@@ -215,8 +216,9 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
+        height: modalChromeHeight,
         padding: const EdgeInsets.fromLTRB(12, 6, 6, 6),
-        color: const Color(0xFFF2F3ED),
+        decoration: modalHeaderDecoration,
         child: Row(
           children: [
             Expanded(
@@ -247,8 +249,10 @@ class _Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
+        width: double.infinity,
+        height: modalChromeHeight,
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        color: const Color(0xFFF2F3ED),
+        decoration: modalFooterDecoration,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

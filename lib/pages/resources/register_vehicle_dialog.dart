@@ -65,7 +65,8 @@ class _RegisterVehicleDialogState extends State<RegisterVehicleDialog> {
   Widget build(BuildContext context) => Dialog(
         insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
         clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(modalRadius)),
         child: ConstrainedBox(
           constraints: BoxConstraints(
             maxWidth: 620,
@@ -232,9 +233,11 @@ class _RegisterVehicleDialogState extends State<RegisterVehicleDialog> {
                 ),
               ),
               Container(
+                width: double.infinity,
+                height: modalChromeHeight,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                color: const Color(0xFFF2F3ED),
+                decoration: modalFooterDecoration,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -270,7 +273,8 @@ class _DialogHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        color: const Color(0xFFF2F3ED),
+        height: modalChromeHeight,
+        decoration: modalHeaderDecoration,
         padding: const EdgeInsets.fromLTRB(14, 7, 7, 7),
         child: Row(children: [
           const Expanded(

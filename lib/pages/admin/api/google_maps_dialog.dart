@@ -107,7 +107,7 @@ class _GoogleMapsConfigDialogState extends State<GoogleMapsConfigDialog> {
                         style: const TextStyle(
                             fontSize: 12, fontWeight: FontWeight.w700)),
                     controlAffinity: ListTileControlAffinity.trailing,
-                    tileColor: const Color(0xFFF2F3ED),
+                    tileColor: modalControlFill,
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(color: border),
                       borderRadius: BorderRadius.circular(8),

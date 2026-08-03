@@ -323,7 +323,8 @@ class _ReportIncidentDialogState extends State<ReportIncidentDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(modalRadius)),
       clipBehavior: Clip.antiAlias,
       child: ConstrainedBox(
         constraints: BoxConstraints(
@@ -333,7 +334,9 @@ class _ReportIncidentDialogState extends State<ReportIncidentDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Padding(
+            Container(
+              height: modalChromeHeight,
+              decoration: modalHeaderDecoration,
               padding: const EdgeInsets.fromLTRB(16, 10, 8, 10),
               child: Row(
                 children: [
@@ -352,7 +355,6 @@ class _ReportIncidentDialogState extends State<ReportIncidentDialog> {
                 ],
               ),
             ),
-            const Divider(height: 1),
             Flexible(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(14),
@@ -483,8 +485,10 @@ class _ReportIncidentDialogState extends State<ReportIncidentDialog> {
               ),
             ),
             Container(
+              width: double.infinity,
+              height: modalChromeHeight,
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-              color: const Color(0xFFF2F3ED),
+              decoration: modalFooterDecoration,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

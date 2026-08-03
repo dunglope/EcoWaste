@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/theme.dart';
+import '../../../shared/widgets.dart';
 import 'integration_dialog_shared.dart';
 
 class WebhookConfigDialog extends StatefulWidget {
@@ -35,9 +36,9 @@ class _WebhookConfigDialogState extends State<WebhookConfigDialog> {
   Future<void> _removeWebhook() async {
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: const Text('Remove Webhook?'),
-        content: const Text(
+      builder: (dialogContext) => EcoModalDialog(
+        title: 'Remove Webhook?',
+        body: const Text(
           'This stops event delivery and removes the saved endpoint and secret.',
         ),
         actions: [
